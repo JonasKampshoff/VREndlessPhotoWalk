@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class TrackController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class TrackController : MonoBehaviour
 
     private GameObject[] spawned = new GameObject[5];
     private int nextTrackIndex = 0;
+
+    private int nextTrackControllerIndex = 0;
 
 
     private void Start()
@@ -47,5 +50,10 @@ public class TrackController : MonoBehaviour
         }
         newGameobject.GetComponent<TrackSecion>().controller = this;
         spawned[nextTrackIndex++ % spawned.Length] = newGameobject;
+    }
+
+    public SplineContainer NextTrackController()
+    {
+        return spawned[nextTrackControllerIndex++%spawned.Length].GetComponent<TrackSecion>().splineContainer;
     }
 }
