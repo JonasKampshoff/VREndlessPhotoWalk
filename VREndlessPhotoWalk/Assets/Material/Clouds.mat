@@ -27,19 +27,23 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BaseNoiseScale: 0
-    - _FineNoiseScale: 0.03
-    - _Height_Value: 29.93
+    - _BaseNoiseScale: 1
+    - _FineNoiseScale: 0.1
+    - _HeightValue: 2
+    - _Height_Value: 2
     - _NoiseScale: 0.2
     - _Power: 2
     - _SmoothEdge1: 0.07
     - _SmoothEdge2: 1
     m_Colors:
-    - _BaseCloadSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseCloadSpeed: {r: 1, g: -0.5, b: 0, a: 0}
+    - _BaseCloudSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _CloudSpeed: {r: 1, g: 1.5, b: 0, a: 0}
     - _Color1: {r: 0.61801344, g: 0.9056604, b: 0.88538617, a: 0}
     - _Color2: {r: 0.967964, g: 1, b: 0.8459119, a: 0}
-    - _FineCloudSpeed: {r: 0.3, g: 0.1, b: 0, a: 0}
+    - _Color_1: {r: 1, g: 1, b: 1, a: 0}
+    - _Color_2: {r: 0, g: 0, b: 0, a: 0}
+    - _FineCloudSpeed: {r: 2, g: -2, b: 0, a: 0}
     - _Remap: {r: 0, g: 1, b: -1, a: 1}
     - _Rotation: {r: 1, g: 0, b: 0, a: 45}
   m_BuildTextureStacks: []
