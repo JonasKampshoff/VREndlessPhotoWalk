@@ -19,7 +19,7 @@ public class PlayerSpaceMovement : MonoBehaviour
 
     void Update()
     {
-        float speedDif = aimedSpeed - currentSpeed;
+        float speedDif = Mathf.Max(aimedSpeed,0) - currentSpeed;
         currentSpeed += Mathf.Min(Mathf.Abs(speedDif),maxAcceleration * Time.deltaTime) * Mathf.Sign(speedDif);
         currentProgress += currentSpeed * Time.deltaTime;
         if (currentProgress > animate.Duration)
