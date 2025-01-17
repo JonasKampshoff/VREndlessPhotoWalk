@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SharpOSC;
+using System.Net;
 
 public class ProcessOSCMessages : MonoBehaviour
 {
     public OscReceiver oscReceiver;
     [SerializeField] private PlayerSpaceMovement playerSpaceMovement;
-   
+
     void Update()
     {
         if (oscReceiver.HasMessagesWaiting())
@@ -19,9 +20,10 @@ public class ProcessOSCMessages : MonoBehaviour
     void ProcessMessage(OscMessage oscMessage)
     {
         Debug.Log(oscMessage);
-        if (oscMessage.Address == "/speed")
+        if (oscMessage.Address == "/speed/0")
         {
-            playerSpaceMovement.aimedSpeed = float.Parse(oscMessage.Arguments[0].ToString());
+            float readValue = float.Parse(oscMessage.Arguments[0].ToString());
+            playerSpaceMovement.aimedSpeed = readValue * Mathf.PI * 5 /6000;
         }
         else
         {
