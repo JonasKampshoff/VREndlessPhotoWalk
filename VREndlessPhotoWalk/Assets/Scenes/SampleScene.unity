@@ -307,7 +307,7 @@ MonoBehaviour:
   FixedSpeedSteps: 0
   HmdResetsY: 1
   HmdRotatesY: 1
-  GravityModifier: 0.379
+  GravityModifier: 0
   useProfileData: 1
   EnableLinearMovement: 1
   EnableRotation: 1
@@ -677,9 +677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad295635e545bf4a80a7fbe289a07b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcceleration: 3
-  aimedSpeed: 0
-  currentSpeed: 0
+  maxAcceleration: 7
+  aimedSpeed: 7
+  currentSpeed: 7
   animate: {fileID: 860155304}
   trackController: {fileID: 800491522}
 --- !u!4 &860155303
