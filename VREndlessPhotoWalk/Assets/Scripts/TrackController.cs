@@ -19,14 +19,12 @@ public class TrackController : MonoBehaviour
 
     private int nextTrackControllerIndex = 0;
 
-
-    private void Start()
+    public void SetUpTrack()
     {
         amountOfParts = (length / 250) + 1;
         GameObject newGameobject = Instantiate(startLine);
-        newGameobject.GetComponent<TrackSecion>().controller = this;
         spawned[nextTrackIndex++] = newGameobject;
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
         {
             SpawnNext();
         }
@@ -48,12 +46,12 @@ public class TrackController : MonoBehaviour
         {
             newGameobject = Instantiate(trackPart[Random.Range(0, trackPart.Count)], last.nextSpawnPoint.position, last.nextSpawnPoint.rotation);
         }
-        newGameobject.GetComponent<TrackSecion>().controller = this;
         spawned[nextTrackIndex++ % spawned.Length] = newGameobject;
     }
 
     public SplineContainer NextTrackController()
     {
+        SpawnNext();
         return spawned[nextTrackControllerIndex++%spawned.Length].GetComponent<TrackSecion>().splineContainer;
     }
 }
