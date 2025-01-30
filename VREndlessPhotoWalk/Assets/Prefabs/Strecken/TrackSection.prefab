@@ -887,19 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTrigger:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7619021018137758968}
-        m_TargetAssemblyTypeName: TrackSecion, Assembly-CSharp
-        m_MethodName: SpawnNext
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8532820617013380075
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,5 +938,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSpawnPoint: {fileID: 8627377895386474943}
-  controller: {fileID: 0}
   splineContainer: {fileID: 3976995532818562568}

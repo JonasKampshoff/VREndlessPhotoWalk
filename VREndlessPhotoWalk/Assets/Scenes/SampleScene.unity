@@ -445,6 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackPart:
   - {fileID: 8532820617013380075, guid: d4248ec61a113b04395e9cf04faaf3a6, type: 3}
+  - {fileID: 867990395590874300, guid: ccda591f70ca49847a38fe9d241fb928, type: 3}
   startLine: {fileID: 8532820617013380075, guid: d4248ec61a113b04395e9cf04faaf3a6, type: 3}
   finishLine: {fileID: 8532820617013380075, guid: d4248ec61a113b04395e9cf04faaf3a6, type: 3}
   length: 0
@@ -573,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 235e5ae2fb4f9ca4090dd1479ae2a0ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.1
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 235e5ae2fb4f9ca4090dd1479ae2a0ee, type: 3}
       propertyPath: m_LocalPosition.z
