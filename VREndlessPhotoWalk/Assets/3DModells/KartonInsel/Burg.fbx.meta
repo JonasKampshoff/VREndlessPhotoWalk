@@ -3,7 +3,17 @@ guid: 8f738c0bf7074af4981fe5fea6a09f64
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PappeMitRand
+    second: {fileID: 2100000, guid: 7f7f29c4075bd74448d8d25045a36099, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 977d629193d43934c9268e8ea1ec2345, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

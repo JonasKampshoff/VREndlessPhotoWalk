@@ -3,7 +3,32 @@ guid: dd81945b2ea7ae4449e081b45920c97a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kante
+    second: {fileID: 2100000, guid: 5e038e0dcc38c7746956d6462dab51f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PappeEndlos
+    second: {fileID: 2100000, guid: 3c3e7fc50711afb48900a0e963035f2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PappeGrass
+    second: {fileID: 2100000, guid: 7c746b8099aa02a4496a1d71622efffc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PappeMitRand
+    second: {fileID: 2100000, guid: 7f7f29c4075bd74448d8d25045a36099, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SteinPappe
+    second: {fileID: 2100000, guid: 607d9fafb09bece4888f0b8b1c0123c3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
