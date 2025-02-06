@@ -1,12 +1,12 @@
 # ninja log v5
-103	1873	7588122142700258	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	925ee930ac622085
-37	2268	7588122148191495	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	34837665076fc814
-56	2348	7588122148891669	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	651b0ca77f742d92
-74	2392	7588122149271751	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	1a3810ce61ad6ffd
-17	2731	7588122152552487	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e6f1c82979bb4647
-1911	2732	7588122149741858	C:/Users/benzp/Documents/GitHub/VREndlessPhotoWalk/VREndlessPhotoWalk/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5d1g4dq5/obj/arm64-v8a/libswappywrapper.so	50b6f27e6ae1882f
-64	2919	7588122154202835	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	b2f9987017f833c
-1	3157	7588122157303557	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	bf67ea40cd510db4
-46	3466	7588122160308563	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	3c3e3c65b58cd5b6
-28	3848	7588122164160360	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a67aeca462329e0a
-3849	4109	7588122167061019	C:/Users/benzp/Documents/GitHub/VREndlessPhotoWalk/VREndlessPhotoWalk/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5d1g4dq5/obj/arm64-v8a/libgame.so	d798348ca7e63be
+94	945	7604050852010440	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	925ee930ac622085
+949	1286	7604050855247542	C:/Users/benzp/Documents/GitHub/VREndlessPhotoWalk/VREndlessPhotoWalk/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5d1g4dq5/obj/arm64-v8a/libswappywrapper.so	50b6f27e6ae1882f
+36	2031	7604050862949317	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	34837665076fc814
+20	2066	7604050863380630	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	bf67ea40cd510db4
+44	2071	7604050863345531	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	651b0ca77f742d92
+53	2124	7604050863800242	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	1a3810ce61ad6ffd
+73	2205	7604050864655984	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	b2f9987017f833c
+12	2383	7604050866528148	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e6f1c82979bb4647
+28	2639	7604050869055251	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	3c3e3c65b58cd5b6
+2	2817	7604050870849071	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a67aeca462329e0a
+2817	2982	7604050872580402	C:/Users/benzp/Documents/GitHub/VREndlessPhotoWalk/VREndlessPhotoWalk/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5d1g4dq5/obj/arm64-v8a/libgame.so	d798348ca7e63be
