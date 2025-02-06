@@ -12,5 +12,5 @@ AssetOrigin:
   productId: 157552
   packageName: Simple Low Poly Nature Pack
   packageVersion: 1.2
-  assetPath: Assets/SimpleLowPolyNature/Shaders/SimpleWater.shader
+  assetPath: Assets/Prefabs/CartoonForestAssets/SimpleLowPolyNature/Shaders/SimpleWater.shader
   uploadId: 355026
