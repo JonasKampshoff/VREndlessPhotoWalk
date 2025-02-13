@@ -20,6 +20,8 @@ public class PlayerSpaceMovement : MonoBehaviour
     [SerializeField] private Vector3 lastPosition;
     [SerializeField] private Vector3 lastTangent;
 
+    [SerializeField] private float angle;
+
     public void StartRun()
     {
         lastPosition = transform.position;
@@ -46,9 +48,12 @@ public class PlayerSpaceMovement : MonoBehaviour
         Vector3 newPosition = currentSplineContainer.EvaluatePosition(currentSplineProgress/currentSplineLength);
         Vector3 newTangent = currentSplineContainer.EvaluateTangent(currentSplineProgress / currentSplineLength);
         characterController.Move(newPosition-lastPosition);
-        transform.Rotate(Vector3.up, Vector3.SignedAngle(lastTangent,newTangent,Vector3.up));
+
+        float newAngle = Vector3.SignedAngle(Vector3.forward, newTangent, Vector3.up);
+        transform.Rotate(Vector3.up, newAngle - angle);
         lastPosition = newPosition;
         lastTangent = newTangent;
+        angle = newAngle;
 
     }
 

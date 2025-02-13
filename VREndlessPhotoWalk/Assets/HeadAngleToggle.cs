@@ -6,14 +6,14 @@ public class HeadAngleToggle : MonoBehaviour
     [Tooltip("Z.B. CenterEyeAnchor aus dem OVRCameraRig.")]
     public Transform headTransform;
 
+    private OVRPassthroughLayer passthroughLayer;
+
     [Header("Angle Settings")]
     [Tooltip("Ab welchem Winkel (gegen Vector3.up) wird etwas ausgelöst?")]
     public float angleThreshold = 120f;
 
-    [Header("Optional: GameObject, das bei Kopfneigung aktiviert wird")]
-    public GameObject objectToActivate;
-
-    private bool isActive = false;
+    [Tooltip("Ab welchem Winkel (gegen Vector3.up) wird etwas ausgelöst?")]
+    public float fadeAngle = 5f;
 
     void Start()
     {
@@ -22,10 +22,9 @@ public class HeadAngleToggle : MonoBehaviour
             Debug.LogWarning("[HeadAngleToggle] Kein Head Transform gesetzt. Bitte im Inspector zuweisen!");
         }
 
-        // Objekt zu Beginn deaktiviert
-        if (objectToActivate)
+        if(!TryGetComponent<OVRPassthroughLayer>(out passthroughLayer))
         {
-            objectToActivate.SetActive(false);
+            Debug.LogWarning("[HeadAngleToggle] Kein OVRPassthroughLayer vorhanden. Bitte im Inspector diesem Objekt zuweisen!");
         }
     }
 
@@ -37,28 +36,20 @@ public class HeadAngleToggle : MonoBehaviour
         float angle = Vector3.Angle(headTransform.forward, Vector3.up);
 
         // Wenn Winkel zu groß -> Kopf stark nach unten
-        if (angle > angleThreshold && !isActive)
+        if (angle > angleThreshold)
         {
-            isActive = true;
-            Debug.Log("[HeadAngleToggle] Kopf stark nach unten geneigt (Winkel: " + angle + "). Aktion ausführen.");
+            passthroughLayer.hidden = false;
 
-            // Objekt aktivieren
-            if (objectToActivate)
-            {
-                objectToActivate.SetActive(true);
-            }
+            if (angle < angleThreshold + fadeAngle)
+                passthroughLayer.textureOpacity = (angle - angleThreshold) / fadeAngle;
+            else
+                passthroughLayer.textureOpacity = 1;
+
         }
         // Wenn Winkel wieder kleiner -> Kopf hebt sich
-        else if (angle <= angleThreshold && isActive)
-        {
-            isActive = false;
-            Debug.Log("[HeadAngleToggle] Kopf wieder weniger geneigt (Winkel: " + angle + "). Aktion rückgängig machen.");
-
-            // Objekt deaktivieren
-            if (objectToActivate)
-            {
-                objectToActivate.SetActive(false);
-            }
+        else { 
+            passthroughLayer.hidden = true;
         }
+        
     }
 }
