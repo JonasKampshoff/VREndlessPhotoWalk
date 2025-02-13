@@ -29,7 +29,7 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _BaseNoiseScale: 0.003
     - _CurvingRadius: 140
-    - _Emission: 0
+    - _Emission: 0.2
     - _Fade_Depth: 1.5
     - _FineNoiseScale: 0.05
     - _Fresnel_Opacity: 0.5
