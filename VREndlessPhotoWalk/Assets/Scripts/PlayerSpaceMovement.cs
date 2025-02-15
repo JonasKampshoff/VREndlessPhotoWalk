@@ -46,6 +46,7 @@ public class PlayerSpaceMovement : MonoBehaviour
 
         //Move CharactetController
         Vector3 newPosition = currentSplineContainer.EvaluatePosition(currentSplineProgress/currentSplineLength);
+        newPosition += new Vector3(0, 0.9f, 0);
         Vector3 newTangent = currentSplineContainer.EvaluateTangent(currentSplineProgress / currentSplineLength);
         characterController.Move(newPosition-lastPosition);
 
