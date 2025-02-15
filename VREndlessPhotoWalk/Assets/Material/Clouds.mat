@@ -32,7 +32,7 @@ Material:
     - _Emission: 0.2
     - _Fade_Depth: 1.5
     - _FineNoiseScale: 0.05
-    - _Fresnel_Opacity: 0.5
+    - _Fresnel_Opacity: 0.8
     - _Fresnel_Power: 1
     - _HeightValue: 2
     - _Height_Value: 10
