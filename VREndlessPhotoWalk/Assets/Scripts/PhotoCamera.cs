@@ -115,7 +115,7 @@ public void Zoomout()
     }
     //Vector2[] raycastPoints = new Vector2[] { new(0, 0), new(50, 50), new(-50, 50), new(50, -50), new(-50, -50), new(100, 100), new(-100, 100), new(100, -100), new(-100, -100), new(200, 150), new(-200, 150), new(200, -150), new(-200, -150), new(150, 0), new(-150, 0) };
     Vector2[] raycastPoints = new Vector2[] { new (0.5f, 0.5f), new (0.4f, 0.4f), new(0.6f, 0.4f), new(0.4f, 0.6f), new(0.6f, 0.6f), new(0.3f, 0.3f), new(0.7f, 0.3f), new(0.3f, 0.7f), new(0.7f, 0.7f), new(0.2f, 0.2f), new(0.8f, 0.2f), new(0.2f, 0.8f), new(0.8f, 0.8f), new(0.2f, 0.5f), new(0.8f, 0.5f) };
-    int[] rayCastDistance = new int[] { 40, 40, 40, 40, 40, 30, 30, 30, 30, 20, 20, 20, 20, 20, 20, 20 };
+    int[] rayCastDistance = new int[] { 100, 40, 40, 40, 40, 30, 30, 30, 30, 20, 20, 20, 20, 20, 20, 20 };
 
     Ray[] rays;
 

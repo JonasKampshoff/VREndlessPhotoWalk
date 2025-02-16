@@ -46,8 +46,10 @@ public class PlayerSpaceMovement : MonoBehaviour
 
         //Move CharactetController
         Vector3 newPosition = currentSplineContainer.EvaluatePosition(currentSplineProgress/currentSplineLength);
+        newPosition += new Vector3(0, 0.9f, 0);
+        float hoehenFehler = newPosition.y - transform.position.y;
         Vector3 newTangent = currentSplineContainer.EvaluateTangent(currentSplineProgress / currentSplineLength);
-        characterController.Move(newPosition-lastPosition);
+        characterController.Move(newPosition-lastPosition + new Vector3(0, hoehenFehler, 0));
 
         float newAngle = Vector3.SignedAngle(Vector3.forward, newTangent, Vector3.up);
         transform.Rotate(Vector3.up, newAngle - angle);

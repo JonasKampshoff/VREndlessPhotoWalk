@@ -1,52 +1,93 @@
+using System;
+using System.Threading;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GPUInstancing : MonoBehaviour
 {
+    [Serializable]
+    public struct SpawnCondition
+    {
+        public Vector3 position;
+        public int min;
+        public int max;
+        public float spawnAreaSize;
+    }
 
     [SerializeField] private Mesh mesh;
     [SerializeField] private float meshScaling = 1;
-    [SerializeField] private float spawnAreaSize = 2;
-    [SerializeField] private int amountOfObjects = 5;
 
     [SerializeField] private Material material;
-    [SerializeField] public Vector3[] positions;
+    [SerializeField] public SpawnCondition[] spawnConditions;
 
 
     private Matrix4x4[] matrices;
-
-
+    private bool render = false;
+    private Matrix4x4 localToWorldMatrix;
+    private int seed;
 
 
     private void Start()
     {
-        matrices = new Matrix4x4[amountOfObjects * positions.Length];
+        seed = UnityEngine.Random.Range(0, 100000000);
+        localToWorldMatrix = transform.localToWorldMatrix;
+        Thread thread = new Thread(CreateMatrix);
+        thread.Start();
+    }
 
+    private void CreateMatrix()
+    {
+        System.Random random = new System.Random(seed);
+        List<Matrix4x4> list = new List<Matrix4x4>();
 
-        for(int i = 0; i < positions.Length; i++)
+        foreach(SpawnCondition x in spawnConditions)
         {
-            for(int j = 0; j < amountOfObjects; j++)
+            int amount = random.Next(x.min,x.max);
+            for (int i = 0; i < amount; i++)
             {
-                Vector2 vector2 = Random.insideUnitCircle * spawnAreaSize;
+                Vector2 spawnPosition = RandomInsideUnitCircle(random) * x.spawnAreaSize;
+                list.Add(localToWorldMatrix * Matrix4x4.TRS(new Vector3(spawnPosition.x, 0, spawnPosition.y) + x.position, Quaternion.Euler(-90, random.Next(0, 360), 0), Vector3.one * meshScaling));
 
-
-                matrices[i* amountOfObjects + j] = transform.localToWorldMatrix * Matrix4x4.TRS(new Vector3(vector2.x, 0, vector2.y) + positions[i], Quaternion.Euler(-90, Random.Range(0,360), 0), Vector3.one * meshScaling);
             }
         }
+
+        matrices = list.ToArray();
+        render = true;
+    }
+
+    private Vector2 RandomInsideUnitCircle(System.Random random)
+    {
+        float x;
+        float y;
+        while (true)
+        {
+            x = (float)random.NextDouble() * 2 - 1;
+            y = (float)random.NextDouble() * 2 - 1;
+            if (x*x+y*y < 1)
+            {
+                break;
+            }
+        }
+        return new Vector2(x,y);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Graphics.DrawMeshInstanced(mesh,0,material,matrices);
+        if (render)
+        {
+            Graphics.DrawMeshInstanced(mesh, 0, material, matrices);
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        for(int i = 0;i < positions.Length; i++)
+        foreach (SpawnCondition x in spawnConditions)
         {
-            Gizmos.DrawWireSphere(transform.position + positions[i],spawnAreaSize);
+            Gizmos.DrawWireSphere(transform.position + x.position,x.spawnAreaSize);
         }
     }
 }
@@ -60,14 +101,15 @@ public class DrawHandles : Editor
         Debug.Log("Draw");
         GPUInstancing gPUInstancing = target as GPUInstancing;
 
-        if (gPUInstancing.positions == null ||
-            gPUInstancing.positions.Length == 0)
+        if (gPUInstancing.spawnConditions == null ||
+            gPUInstancing.spawnConditions.Length == 0)
             return;
 
-        for (int i = 0; i < gPUInstancing.positions.Length; i++)
+        for (int i = 0; i < gPUInstancing.spawnConditions.Length; i++)
         {
-            Vector3 x = gPUInstancing.positions[i];
-            gPUInstancing.positions[i] = Handles.DoPositionHandle(gPUInstancing.transform.position+x, Quaternion.identity) - gPUInstancing.transform.position;
+            Vector3 position = gPUInstancing.transform.position + gPUInstancing.spawnConditions[i].position;
+            Handles.Label(position, "  " + i);
+            gPUInstancing.spawnConditions[i].position = Handles.DoPositionHandle(position, Quaternion.identity) - gPUInstancing.transform.position;
         }
 
   
