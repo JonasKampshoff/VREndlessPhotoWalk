@@ -365,7 +365,7 @@ MonoBehaviour:
   maxAcceleration: 3
   trackController: {fileID: 800491522}
   characterController: {fileID: 487221378}
-  aimedSpeed: 10
+  aimedSpeed: 3
   currentSpeed: 0
   currentSplineContainer: {fileID: 0}
   currentSplineLength: 0

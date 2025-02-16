@@ -6,7 +6,12 @@ public class SunRotater : MonoBehaviour
 
     [SerializeField] private float ambientIntensity = 0;
 
+    public static SunRotater instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,5 +37,10 @@ public class SunRotater : MonoBehaviour
         RenderSettings.fogColor = Color.white * ambientIntensity * ambientIntensity;
         RenderSettings.ambientIntensity = ambientIntensity + 0.1f;
         transform.localRotation = Quaternion.Euler(0, rotation, 0);
+    }
+
+    public bool IsDay()
+    {
+        return rotation >= 180;
     }
 }
