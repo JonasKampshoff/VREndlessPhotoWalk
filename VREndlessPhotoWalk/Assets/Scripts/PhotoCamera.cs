@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,6 +69,16 @@ public class PhotoCamera : MonoBehaviour
     public void Photo()
     {
         StartCoroutine(PhotoCoroutine());
+    }
+
+public void Zoom()
+    {
+
+    }
+
+public void Zoomout()
+    {
+
     }
 
     IEnumerator PhotoCoroutine()
