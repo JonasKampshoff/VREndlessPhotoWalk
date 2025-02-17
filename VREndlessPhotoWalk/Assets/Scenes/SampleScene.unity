@@ -515,8 +515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackPart:
-  - {fileID: 8532820617013380075, guid: d4248ec61a113b04395e9cf04faaf3a6, type: 3}
-  - {fileID: 8532820617013380075, guid: 7818df8a38aaf0249901d115a24c73e5, type: 3}
   - {fileID: 8532820617013380075, guid: 11fb0d229bc90834cacb68adb901e591, type: 3}
   skyPart:
   - {fileID: 8532820617013380075, guid: d2efcb8e1e0b69943b46359c5d8081bc, type: 3}
