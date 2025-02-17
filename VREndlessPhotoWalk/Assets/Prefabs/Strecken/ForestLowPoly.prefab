@@ -114,6 +114,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6707806264776874079}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: stand_to_sit
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &8406904994999162075
 AudioSource:
   m_ObjectHideFlags: 0
@@ -291,6 +303,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7759937136652998232}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: stand_to_sit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!82 &5435464353488196019
@@ -1860,7 +1884,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Goat_white
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3084024626696190680, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3084024626696190678, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
@@ -1871,6 +1896,11 @@ PrefabInstance:
 --- !u!4 &7759937136652998231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3084024626696190678, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
+  m_PrefabInstance: {fileID: 4718784742518434945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7759937136652998232 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3084024626696190681, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
   m_PrefabInstance: {fileID: 4718784742518434945}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4758820522737456421
@@ -2197,7 +2227,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Goat_dark
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3507746843320673368, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3507746843320673366, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
@@ -2208,6 +2239,11 @@ PrefabInstance:
 --- !u!4 &6707806264776874064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3507746843320673366, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
+  m_PrefabInstance: {fileID: 7906332381912120326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6707806264776874079 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3507746843320673369, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
   m_PrefabInstance: {fileID: 7906332381912120326}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9131963117858760280

@@ -1,6 +1,8 @@
+using Meta.Net.NativeWebSocket;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,8 @@ public class PhotoCamera : MonoBehaviour
     [SerializeField] private RenderTexture texture;
     [SerializeField] private Image image;
     [SerializeField] private Image kameraOverlay;
+    [SerializeField] private TMP_Text zoomText;
+    [SerializeField] private TMP_Text imageInfo;
 
 
     [Header("Masken")]
@@ -28,7 +32,8 @@ public class PhotoCamera : MonoBehaviour
     [SerializeField] private int width = 720;
     [SerializeField] private int heigth = 480;
 
-
+    private bool isInViewMode = false;
+    private int imageToShow = 0;
 
     private List<Texture2D> images = new List<Texture2D>();
     private List<Sprite> sprites = new List<Sprite>();
@@ -38,38 +43,59 @@ public class PhotoCamera : MonoBehaviour
     {
         image.enabled = false;
         kameraOverlay.enabled = true;
+        zoomText.enabled = true;
+        imageInfo.enabled = false;
     }
-
-    float delay = 5;
 
     void Update()
     {
         // Zoom wird weiterhin aktualisiert
         cam.fieldOfView = fieldOfView / zoom;
-
+        zoomText.text = "Zoom: " + zoom.ToString("0.00");
+        imageInfo.text = imageToShow + "/" + sprites.Count;
         // A-Button auf dem rechten Oculus-Controller drücken, um ein Foto zu machen
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
-            Photo();
+            if (!isInViewMode)
+                Photo();
+            else
+                StoreImage();
         }
+
+        // Wechselt zwischen Foto und View modus
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            isInViewMode = !isInViewMode;
+
+            imageInfo.enabled = isInViewMode;
+            image.enabled = isInViewMode;
+            kameraOverlay.enabled = !isInViewMode;
+            zoomText.enabled = !isInViewMode;
+        }
+        if(isInViewMode)
+        {
+            if ((OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)) && imageToShow < sprites.Count)
+                imageToShow++;
+            if ((OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)) && imageToShow > 1)
+                imageToShow--;
+            image.sprite = sprites[imageToShow-1];
+        }
+        zoom += OVRInput.Get(OVRInput.Axis2D.Any).y * Time.deltaTime;
+        if(zoom > 6)
+            zoom = 6;
+        if(zoom < 1)
+            zoom = 1;
     }
 
-    /**
-     * private void LateUpdate()
+
+    public void StoreImage()
     {
-      delay -= Time.deltaTime;
-        if (delay < 0)
+        if(imageToShow > 0)
         {
-            Photo();
-            delay = 5;
+            string filePath = Application.dataPath + "/Bild" + imageToShow + ".png";
+            byte[] bytes = images[imageToShow-1].EncodeToPNG();
+            File.WriteAllBytes(filePath, bytes);
         }
-    }
-    **/
-    public void StoreImage(int id)
-    {
-        string filePath = Application.dataPath + "/Bild" + id + ".png";
-        byte[] bytes = images[id].EncodeToPNG();
-        File.WriteAllBytes(filePath, bytes);
     }
 
     public void Photo()
@@ -77,18 +103,12 @@ public class PhotoCamera : MonoBehaviour
         StartCoroutine(PhotoCoroutine());
     }
 
-public void Zoom()
-    {
-
-    }
-
-public void Zoomout()
-    {
-
-    }
-
     IEnumerator PhotoCoroutine()
     {
+        zoomText.enabled = false;
+        kameraOverlay.enabled = false;
+        yield return new WaitForUpdate();
+
         //Setup for dem Foto
         //Deaktivieren des UI
         cam.cullingMask = withoutUI;
@@ -96,7 +116,7 @@ public void Zoomout()
         RenderTexture.active = texture;
 
         //Foto erstellen
-        cam.Render();
+        //cam.Render();
         Texture2D newImage = new Texture2D(width, heigth);
         newImage.ReadPixels(new Rect(0, 0, width, heigth), 0, 0);
         newImage.Apply();
@@ -114,8 +134,10 @@ public void Zoomout()
         image.enabled = true;
         image.sprite = sprite;
 
-        kameraOverlay.enabled = false;
         yield return new WaitForSeconds(1);
+
+        imageToShow = sprites.Count;
+        zoomText.enabled = true;
         image.enabled = false;
         kameraOverlay.enabled = true;
     }
