@@ -1,0 +1,12 @@
+# ninja log v5
+49	1181	7615206339636217	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	a363526dc00bd4c7
+1231	2296	7615206346885507	C:/Users/mw199/Desktop/VREndlessPhotoWalk/VREndlessPhotoWalk/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5e2ii4h6/obj/arm64-v8a/libswappywrapper.so	aff93fe9836650d1
+40	3381	7615206360685166	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	4adb7d343ac46f88
+23	3464	7615206360632937	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	b6940f2af24732c8
+34	3467	7615206362599452	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	c264fd86e4c62d44
+17	3469	7615206360730311	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	fd0515a937f6967f
+12	3471	7615206360648773	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	16fba6b6d77f858b
+2	3689	7615206363333103	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	fc75a8902e88cb5f
+28	4116	7615206368923066	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	820e2a3188e6d93f
+7	4674	7615206374674796	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	606d264c48e41f7b
+4675	5004	7615206378827096	C:/Users/mw199/Desktop/VREndlessPhotoWalk/VREndlessPhotoWalk/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5e2ii4h6/obj/arm64-v8a/libgame.so	3578753a7df9a81
