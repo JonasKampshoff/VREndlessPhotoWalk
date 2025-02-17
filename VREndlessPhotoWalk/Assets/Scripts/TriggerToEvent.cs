@@ -9,6 +9,7 @@ public class TriggerToEvent : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<CharacterController>(out _))
         {
+            Debug.Log("Trigger");
             onTrigger.Invoke();
         }
     }

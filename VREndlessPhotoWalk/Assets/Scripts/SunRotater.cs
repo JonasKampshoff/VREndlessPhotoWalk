@@ -5,6 +5,7 @@ public class SunRotater : MonoBehaviour
     [SerializeField] private float rotation = 0;
 
     [SerializeField] private float ambientIntensity = 0;
+    [SerializeField] private Light sunLight;
 
     public static SunRotater instance;
 
@@ -35,6 +36,7 @@ public class SunRotater : MonoBehaviour
             ambientIntensity = 1f - Mathf.Abs((rotation - 270) / 180);
         }
         RenderSettings.fogColor = Color.white * ambientIntensity * ambientIntensity;
+        sunLight.intensity = ambientIntensity + 0.1f;
         RenderSettings.ambientIntensity = ambientIntensity + 0.1f;
         transform.localRotation = Quaternion.Euler(0, rotation, 0);
     }
@@ -42,5 +44,10 @@ public class SunRotater : MonoBehaviour
     public bool IsDay()
     {
         return rotation >= 180;
+    }
+
+    public void OnOff(bool value)
+    {
+        sunLight.enabled = value;
     }
 }
