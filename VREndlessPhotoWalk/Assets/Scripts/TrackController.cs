@@ -11,7 +11,7 @@ public class TrackController : MonoBehaviour
 
     [SerializeField] private GameObject startLine;
 
-    private GameObject[] spawned = new GameObject[6];
+    private GameObject[] spawned = new GameObject[4];
     private int nextTrackIndex = 0;
 
     private int nextTrackControllerIndex = 0;
@@ -20,7 +20,7 @@ public class TrackController : MonoBehaviour
     {
         GameObject newGameobject = Instantiate(startLine);
         spawned[nextTrackIndex++] = newGameobject;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             SpawnNext();
         }
