@@ -1856,6 +1856,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3084024626696190680, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084024626696190681, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3084024626696190684, guid: f5c8b6dc56a8e634a8f2a0cfbee2941d, type: 3}
       propertyPath: m_Name
       value: SK_Goat_white
@@ -2191,6 +2199,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3507746843320673366, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507746843320673368, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507746843320673369, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3507746843320673371, guid: 4f9eebc977b93d641a58f15164948196, type: 3}
