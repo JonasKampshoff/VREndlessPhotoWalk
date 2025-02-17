@@ -42,23 +42,29 @@ public class PhotoCamera : MonoBehaviour
 
     float delay = 5;
 
-    // Update is called once per frame
     void Update()
     {
-        //Zoom
+        // Zoom wird weiterhin aktualisiert
         cam.fieldOfView = fieldOfView / zoom;
+
+        // A-Button auf dem rechten Oculus-Controller drücken, um ein Foto zu machen
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            Photo();
+        }
     }
 
-    private void LateUpdate()
+    /**
+     * private void LateUpdate()
     {
-        delay -= Time.deltaTime;
+      delay -= Time.deltaTime;
         if (delay < 0)
         {
             Photo();
             delay = 5;
         }
     }
-
+    **/
     public void StoreImage(int id)
     {
         string filePath = Application.dataPath + "/Bild" + id + ".png";
