@@ -402,7 +402,7 @@ MonoBehaviour:
   trackController: {fileID: 800491522}
   characterController: {fileID: 487221378}
   aimedSpeed: 5
-  currentSpeed: 10
+  currentSpeed: 0
   currentSplineContainer: {fileID: 0}
   currentSplineLength: 0
   currentSplineProgress: 0
