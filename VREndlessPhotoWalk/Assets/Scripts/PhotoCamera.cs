@@ -17,6 +17,7 @@ public class PhotoCamera : MonoBehaviour
     [SerializeField] private Image kameraOverlay;
     [SerializeField] private TMP_Text zoomText;
     [SerializeField] private TMP_Text imageInfo;
+    [SerializeField] private AudioSource audioSource;
 
 
     [Header("Masken")]
@@ -101,6 +102,7 @@ public class PhotoCamera : MonoBehaviour
     public void Photo()
     {
         StartCoroutine(PhotoCoroutine());
+        audioSource.Play();
     }
 
     IEnumerator PhotoCoroutine()
