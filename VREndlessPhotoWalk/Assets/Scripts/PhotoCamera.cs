@@ -39,6 +39,9 @@ public class PhotoCamera : MonoBehaviour
     private List<Texture2D> images = new List<Texture2D>();
     private List<Sprite> sprites = new List<Sprite>();
 
+    private float rightFree = 0;
+    private float leftFree = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -75,13 +78,21 @@ public class PhotoCamera : MonoBehaviour
         }
         if(isInViewMode)
         {
-            if ((OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)) && imageToShow < sprites.Count)
+            if (rightFree <= 0 && (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)) && imageToShow < sprites.Count)
+            {
                 imageToShow++;
-            if ((OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)) && imageToShow > 1)
+                rightFree = 0.7f;
+            }
+            if (leftFree <= 0 && (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)) && imageToShow > 1)
+            {
                 imageToShow--;
+                leftFree = 0.7f;
+            }
             image.sprite = sprites[imageToShow-1];
+            rightFree -= Time.deltaTime;
+            leftFree -= Time.deltaTime;
         }
-        zoom += OVRInput.Get(OVRInput.Axis2D.Any).y * Time.deltaTime;
+        zoom += OVRInput.Get(OVRInput.Axis2D.Any).y * Time.deltaTime * 2;
         if(zoom > 6)
             zoom = 6;
         if(zoom < 1)
