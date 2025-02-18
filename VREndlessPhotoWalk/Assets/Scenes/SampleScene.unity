@@ -366,8 +366,8 @@ MonoBehaviour:
   HmdRotatesY: 1
   GravityModifier: 0
   useProfileData: 1
-  EnableLinearMovement: 1
-  EnableRotation: 1
+  EnableLinearMovement: 0
+  EnableRotation: 0
   RotationEitherThumbstick: 0
 --- !u!143 &487221378
 CharacterController:
